@@ -3,24 +3,33 @@
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form class="example-form">
+    <div *ngIf="notifyMessage" class="alert alert-success">
+      {{notifyMessage}}
+    </div>
+    <form class="example-form" [formGroup]="loginForm" (ngSubmit)="login()" >
       <table class="example-full-width" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Username" value="Username">
+              <input matInput placeholder="emal" name="email" formControlName="email">
             </mat-form-field>
           </td>
         </tr>
         <tr>
         <td><mat-form-field class="example-full-width">
-          <input matInput placeholder="Password" value="Password">
+          <input matInput placeholder="Password" type="password" formControlName="password">
         </mat-form-field></td>
       </tr></table>
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="!loginForm.valid" color ="primary">Login</button>
+      </mat-card-actions>
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
   </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color ="primary">Login</button>
-  </mat-card-actions>
+  <div class="col-md-6 ml-auto">
+      <div class="image-container">
+        <h2 class="catchphrase">Hundreds of awesome places in reach of few clicks.</h2>
+        <img src="assets/images/login.jpg" alt="">
+      </div>
+    </div>
 </mat-card>

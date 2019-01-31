@@ -1,4 +1,4 @@
 module.exports = {
-    url:'mongodb://jatins49:Jatin123@ @ds115595.mlab.com:15595/usual',
+    url:'mongodb://localhost:27017/socialworks',
     secret:'myjsonwebtoken'
 };

@@ -11,7 +11,9 @@ import { MaterialModule } from './modules/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './auth/shared/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './common/home.component';
+import { HomeComponent } from './common/home/home.component';
+import { UserModule } from './user/user.module';
+
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { HomeComponent } from './common/home.component';
     AppComponent,
     HeaderComponent,
     AuthComponent,
-    HomeComponent
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,AuthModule,MaterialModule,FormsModule,ReactiveFormsModule
+    BrowserAnimationsModule,AuthModule,MaterialModule,
+    FormsModule,ReactiveFormsModule,UserModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

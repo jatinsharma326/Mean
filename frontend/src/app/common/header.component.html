@@ -7,12 +7,20 @@
       <li>
         <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
       </li>
-      <li>
-        <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
-      </li>
-      <li>
-        <a mat-button routerLink="/register" routerLinkActive="mat-accent">Register</a>
-      </li>
+      <ng-container *ngIf="!auth.isAuthenticated()">
+        <li>
+          <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+        </li>
+        <li>
+          <a mat-button routerLink="/register" routerLinkActive="mat-accent">Register</a>
+        </li>
+    </ng-container>
+    <li *ngIf="auth.isAuthenticated()">
+      <a mat-button routerLinkActive="mat-accent">{{auth.getUsername()}}</a>
+    </li>
+    <li *ngIf="auth.isAuthenticated()">
+      <a mat-button (click)="logout()" routerLinkActive="mat-accent">Logout</a>
+    </li>
     </ul>
   </span>
 </mat-toolbar>

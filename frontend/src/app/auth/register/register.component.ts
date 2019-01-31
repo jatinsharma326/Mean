@@ -20,11 +20,10 @@ register(){
   console.log(this.formData);
   this.auth.register(this.formData).subscribe(
     (res)=>{
-      console.log(res);
+      this.router.navigate(['/login',{registered:'success'}]);
     },
     (errorResponse)=>{
       console.log(errorResponse);
-
     })
 }
 
